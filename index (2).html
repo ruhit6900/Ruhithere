@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Captain Ruhit - Developer</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Fira+Code:wght@400;500;600&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #0a0015;
+      color: #e0d0ff;
+      min-height: 100vh;
+      overflow-x: hidden;
+      background: radial-gradient(circle at 30% 20%, rgba(180, 0, 255, 0.12) 0%, transparent 50%),
+                  radial-gradient(circle at 70% 80%, rgba(255, 0, 180, 0.10) 0%, transparent 60%),
+                  linear-gradient(135deg, #12001f 0%, #1c0038 50%, #28005a 100%);
+      background-size: 300% 300%;
+      animation: bgMove 25s ease infinite;
+    }
+
+    @keyframes bgMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 15px;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .welcome {
+      font-size: 1.4rem;
+      color: #bb86fc;
+      margin: 40px 0 10px;
+      letter-spacing: 4px;
+      text-shadow: 0 0 15px rgba(187, 134, 252, 0.7);
+    }
+
+    .big-captain {
+      font-family: 'Orbitron', sans-serif;
+      font-size: clamp(3rem, 12vw, 7rem);
+      font-weight: 900;
+      background: linear-gradient(90deg, #c300ff, #ff00aa, #ff3366, #c300ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      background-size: 300% auto;
+      animation: textGlow 6s linear infinite;
+      text-shadow: 0 0 60px rgba(195, 0, 255, 0.8);
+      margin: 10px 0 30px;
+      letter-spacing: 2px;
+    }
+
+    @keyframes textGlow {
+      0% { background-position: 0% center; }
+      100% { background-position: 300% center; }
+    }
+
+    .description {
+      font-size: clamp(1.1rem, 4vw, 1.4rem);
+      color: #e0c0ff;
+      max-width: 720px;
+      margin: 0 auto 50px;
+      line-height: 1.7;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.6);
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 16px 45px;
+      margin: 15px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      text-decoration: none;
+      color: white;
+      background: linear-gradient(45deg, #c300ff, #ff00aa);
+      border-radius: 50px;
+      box-shadow: 0 10px 35px rgba(195, 0, 255, 0.5);
+      transition: all 0.4s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 50px rgba(195, 0, 255, 0.7);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 2.5px solid #bb86fc;
+      color: #bb86fc;
+    }
+
+    .btn-outline:hover {
+      background: rgba(187, 134, 252, 0.15);
+    }
+
+    .captain-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 15px;
+      padding: 14px 40px;
+      margin: 60px auto 40px;
+      font-family: 'Orbitron', sans-serif;
+      font-size: clamp(1.5rem, 7vw, 3rem);
+      font-weight: 900;
+      color: #ff00cc;
+      background: linear-gradient(135deg, rgba(180, 0, 255, 0.3), rgba(255, 0, 180, 0.2));
+      border: 2px solid #ff00cc;
+      border-radius: 999px;
+      box-shadow: 0 0 50px rgba(255, 0, 204, 0.6), inset 0 0 25px rgba(255, 0, 204, 0.3);
+      backdrop-filter: blur(8px);
+      text-shadow: 0 0 20px #ff00cc;
+    }
+
+    .menu-icon {
+      font-size: 1.8rem;
+      color: #ff00cc;
+    }
+
+    .code-block {
+      background: rgba(10, 5, 30, 0.75);
+      border: 1px solid rgba(180, 0, 255, 0.35);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 15px 50px rgba(0, 0, 0, 0.7), 0 0 40px rgba(180, 0, 255, 0.25);
+      backdrop-filter: blur(10px);
+      max-width: 95%;
+      margin: 0 auto 50px;
+    }
+
+    pre {
+      padding: 20px 16px;
+      font-family: 'Fira Code', monospace;
+      font-size: clamp(0.78rem, 3.2vw, 0.92rem);
+      line-height: 1.45;
+      text-align: left;
+      overflow-x: auto;
+      color: #e0d0ff;
+      white-space: pre-wrap;
+      word-break: break-all;
+      hyphens: auto;
+    }
+
+    .keyword { color: #ff00cc; font-weight: 600; }
+    .property { color: #7dd3fc; }
+    .string { color: #00ff9d; }
+    .boolean { color: #60a5fa; font-weight: bold; }
+    .bracket { color: #e0d0ff; }
+
+    /* Skills Section - Chhote Boxes */
+    .skills-section {
+      margin: 60px auto 80px;
+      padding: 0 10px;
+      max-width: 900px;
+    }
+
+    .skills-title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: clamp(2.2rem, 8vw, 4rem);
+      font-weight: 900;
+      background: linear-gradient(90deg, #c300ff, #ff00aa, #ff3366);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 40px rgba(195, 0, 255, 0.7);
+      margin-bottom: 50px;
+      letter-spacing: 2px;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+      justify-items: center;
+    }
+
+    .skill-card {
+      background: rgba(20, 10, 50, 0.75);
+      border: 1px solid rgba(255, 0, 204, 0.35);
+      border-radius: 14px;
+      padding: 18px 15px;
+      width: 100%;
+      max-width: 300px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 10px 35px rgba(0, 0, 0, 0.6), 0 0 30px rgba(255, 0, 204, 0.25);
+      transition: all 0.3s ease;
+      text-align: center;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 15px 50px rgba(0, 0, 0, 0.7), 0 0 45px rgba(255, 0, 204, 0.35);
+    }
+
+    .skill-heading {
+      font-size: clamp(1.2rem, 4.2vw, 1.5rem);
+      font-weight: 700;
+      color: #ff00cc;
+      margin-bottom: 12px;
+      text-shadow: 0 0 12px rgba(255, 0, 204, 0.6);
+      line-height: 1.2;
+    }
+
+    .skill-desc {
+      font-size: 0.88rem;
+      color: #d0bfff;
+      line-height: 1.45;
+      text-align: left;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+    }
+
+    /* Part 5: Ready to Collaborate Section */
+    .collaborate-section {
+      margin: 80px auto 120px;
+      padding: 40px 20px;
+      background: rgba(20, 10, 60, 0.6);
+      border-radius: 24px;
+      backdrop-filter: blur(15px);
+      box-shadow: 0 20px 80px rgba(0, 0, 0, 0.7), 0 0 70px rgba(180, 0, 255, 0.4);
+      max-width: 900px;
+      border: 1px solid rgba(180, 0, 255, 0.3);
+    }
+
+    .collaborate-title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: clamp(2.5rem, 9vw, 5rem);
+      font-weight: 900;
+      background: linear-gradient(90deg, #c300ff, #ff00aa, #ff3366);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 60px rgba(195, 0, 255, 0.8);
+      margin-bottom: 30px;
+      letter-spacing: 3px;
+      line-height: 1.1;
+    }
+
+    .collaborate-desc {
+      font-size: clamp(1.1rem, 4vw, 1.4rem);
+      color: #d0bfff;
+      max-width: 700px;
+      margin: 0 auto 40px;
+      line-height: 1.6;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    }
+
+    .telegram-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 18px 50px;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: white;
+      background: linear-gradient(45deg, #ff00cc, #c300ff);
+      border-radius: 60px;
+      box-shadow: 0 15px 50px rgba(255, 0, 204, 0.6);
+      text-decoration: none;
+      transition: all 0.4s ease;
+      border: none;
+      cursor: pointer;
+    }
+
+    .telegram-btn:hover {
+      transform: translateY(-6px) scale(1.05);
+      box-shadow: 0 25px 70px rgba(255, 0, 204, 0.8);
+    }
+
+    .telegram-icon {
+      font-size: 1.4rem;
+    }
+
+    .bottom-glow {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 250px;
+      background: radial-gradient(circle at 50% 100%, rgba(180, 0, 255, 0.35) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    @media (max-width: 600px) {
+      .collaborate-title { font-size: clamp(2.2rem, 8vw, 4rem); }
+      .collaborate-desc { font-size: 1.1rem; padding: 0 15px; }
+      .telegram-btn { padding: 15px 40px; font-size: 1.05rem; }
+      .skill-card { max-width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bottom-glow"></div>
+
+  <div class="container">
+
+    <!-- Welcome part -->
+    <div class="welcome">WELCOME</div>
+    <h1 class="big-captain">Captain Ruhit</h1>
+
+    <p class="description">
+      Full-stack developer passionate about building innovative solutions<br>
+      I specialize in Telegram bots, mini apps, and crypto-related projects.<br>
+      I can also work with any other projects including<br>
+      Next.js web development, PHP, and more.
+    </p>
+
+    <a href="https://t.me/ruhit2" class="btn">View Projects</a>
+    <!-- Code block -->
+    <div class="captain-btn">
+      Captain Ruhit <span class="menu-icon">≡</span>
+    </div>
+
+    <div class="code-block">
+      <pre><code>
+<span class="keyword">const</span> <span class="property">developer</span> <span class="keyword">=</span> <span class="bracket">{</span>
+
+  <span class="property">name</span>: <span class="string">"Ruhit"</span>,
+
+  <span class="property">skills</span>: <span class="bracket">[</span>
+    <span class="string">"Telegram Bots"</span>,
+    <span class="string">"Mini Apps"</span>, <span class="string">"Crypto"</span>,
+    <span class="string">"Web Dev"</span>
+  <span class="bracket">],</span>
+
+  <span class="property">languages</span>: <span class="bracket">[</span>
+    <span class="string">"JavaScript"</span>,
+    <span class="string">"TypeScript"</span>, <span class="string">"HTML"</span>
+  <span class="bracket">],</span>
+
+  <span class="property">passionate</span>: <span class="boolean">true</span>
+
+<span class="bracket">}</span>
+      </code></pre>
+    </div>
+
+    <!-- Skills & Expertise -->
+    <section class="skills-section">
+      <h2 class="skills-title">SKILLS &amp; EXPERT</h2>
+
+      <div class="skills-grid">
+        <div class="skill-card">
+          <h3 class="skill-heading">Telegram Development</h3>
+          <p class="skill-desc">
+            Building interactive bots and mini applications on Telegram platform with advanced features and integrations.
+          </p>
+        </div>
+
+        <div class="skill-card">
+          <h3 class="skill-heading">Crypto Projects</h3>
+          <p class="skill-desc">
+            Developing blockchain-related applications, smart contract integration, and cryptocurrency solutions.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Part 5: Ready to Collaborate -->
+    <section class="collaborate-section">
+      <h2 class="collaborate-title">Ready to Collab?</h2>
+      <p class="collaborate-desc">
+        Have an interesting project? Let's work together to bring your ideas to life.
+      </p>
+      <a href="https://t.me/selfdefeated" class="telegram-btn" target="_blank">
+        <span class="telegram-icon">✈</span> Contact
+      </a>
+    </section>
+
+  </div>
+
+</body>
+</html>
